@@ -1,0 +1,6 @@
+/venv/Scripts/
+*.png
+*.jpg
+/venv/Lib/
+/venv/Include/
+.idea
