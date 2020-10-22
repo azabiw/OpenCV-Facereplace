@@ -5,8 +5,8 @@ from matplotlib import pyplot as plt
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
 
-img = cv2.imread('meidomegis.png')
-megis = cv2.imread('megislowres.png')
+img = cv2.imread('input.png') # image to edit
+megis = cv2.imread('megislowres.png')  # image to replace found faces with
 
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -20,7 +20,7 @@ for (x,y,w,h) in faces:
     roi = img[y:y + h, x:x + w]
 
     rows, cols, channels = roi.shape
-    img2 = cv2.resize(megis, (cols, rows))
+    img2 = cv2.resize(megis, (cols, rows)) # scales image to correct size
 
     # I want to put logo on top-left corner, So I create a ROI
     rows, cols, channels = img2.shape
